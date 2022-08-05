@@ -102,10 +102,4 @@ GROUP BY D.DEPTNO, DNAME;
 --17. Hiển thị những nhân viên có mức lương lớn hơn lương TB của phòng ban mà họ làm
 
 --18. Hiển thị tên nhân viên, mã nhân viên, mã giám đốc, tên giám đốc, phòng ban làm  việc của giám đốc, mức lương của giám đốc.
-SELECT *
-FROM EMP
-where JOB = 'MANAGER';
-SELECT *
-FROM DEPT;
-SELECT *
-FROM SALGRADE;
+
