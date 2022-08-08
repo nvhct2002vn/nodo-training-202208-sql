@@ -40,13 +40,13 @@ FROM EMP
 WHERE SAL IS NOT NULL;
 
 -- 9. Cho biết thứ của ngày hiện tại
-SELECT DECODE("nn/nn", 'YES', 'NO')
-FROM DUAL
+SELECT TO_CHAR(CURRENT_DATE,'Day') as Day FROM DUAL;
 
 --10. Đưa chuỗi dưới dạng nn/nn, kiểm tra nếu khúng khuôn dạng trả lời là YES, ngược lại là NO. Kiểm tra với các chuỗi 12/34, 01/1a, 99\88
 -- SELECT ENAME, DECODE(JOB, 'SALESMAN', 'CO SALESMAN', 'MANAGER', 'CO MANAGER', 'KHONG')
 -- FROM EMP;
-
+SELECT DECODE("nn/nn", 'YES', 'NO')
+FROM DUAL
 --11. Hiển thị tên nhân viên, ngày gia nhập công ty, ngày lĩnh lương sao cho ngày lĩnh lương phải vào thứ 6,
 -- nhân viên chỉ được nhận lương sau ít nhất 15 ngày làm việc tại công ty, sắp xếp theo thứ tự ngày gia nhập công ty.
 SELECT ENAME, HIREDATE, TO_CHAR(NEXT_DAY(HIREDATE + 15, 'Thứ Sáu'), 'dd - month') AS NgayNhanLuong
