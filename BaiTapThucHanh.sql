@@ -211,11 +211,11 @@ FROM VIETHIEN_MUON_SACH MS
          JOIN VIETHIEN_BAN_DOC BD ON BD.ID = MS.ID_BAN_DOC
          JOIN VIETHIEN_SACH S ON MS.ID_SACH = S.ID
 WHERE NGAY_GIO_MUON between to_char(trunc(sysdate, 'month')) and to_char(sysdate)
-ORDER BY BD.TEN ASC;
+ORDER BY NGAY_GIO_MUON DESC, BD.TEN ASC;
 
 -- 8.	Hiển thị 10 quyển sách có số lượng được mượn nhiều nhất tính từ đầu năm 2022
 -- Mã Sách, Tên Sách, Số Lượng Đã Được Mượn.
-SELECT S.MA MA_SACH, S.TEN TEN_SACH, SUM(SO_LUONG) SO_LUONG_MUON
+SELECT S.MA MA_SACH, S.TEN TEN_SACH, SUM(MS.SO_LUONG)
 FROM VIETHIEN_MUON_SACH MS
          JOIN VIETHIEN_SACH S on MS.ID_SACH = S.ID
 WHERE TO_CHAR(NGAY_GIO_MUON, 'yyyy') >= 2022
@@ -225,9 +225,9 @@ ORDER BY SUM(SO_LUONG) DESC;
 
 -- 9.	Hiển thị danh sách bạn đọc và số lần mượn sách tính từ đầu năm 2022 sắp xếp theo tên bạn đọc tăng dần:
 -- Mã Bạn Đọc, Tên Bạn Đọc, Số Lần Mượn
-SELECT MA, TEN, SUM(SO_LUONG) AS SOLUONG
-FROM VIETHIEN_BAN_DOC
-         JOIN VIETHIEN_MUON_SACH MS on VIETHIEN_BAN_DOC.ID = MS.ID_BAN_DOC
+SELECT MA, TEN, COUNT(MA) SO_LAN_MUON
+FROM VIETHIEN_MUON_SACH
+         JOIN VIETHIEN_BAN_DOC ON VIETHIEN_MUON_SACH.ID_BAN_DOC = VIETHIEN_BAN_DOC.ID
 WHERE TO_CHAR(NGAY_GIO_MUON, 'yyyy') >= 2022
 GROUP BY MA, TEN
 ORDER BY TEN ASC;
@@ -250,8 +250,8 @@ group by TO_CHAR(SYSDATE, 'YYYY') - TO_CHAR(NGAY_SINH, 'YYYY');
 SELECT TO_CHAR(NAM_SAN_XUAT, 'YYYY') AS NAMSB, SB.MA, SB.TEN, SUM(TONG_SO_SACH) AS TONG_SO_LUONG_SACH
 FROM VIETHIEN_NHA_XUAT_BAN SB
          JOIN VIETHIEN_SACH VS on SB.ID = VS.ID_NXB
-group by SB.TEN, TO_CHAR(NAM_SAN_XUAT, 'YYYY'), SB.MA, NAM_SAN_XUAT
-ORDER BY TO_CHAR(NAM_SAN_XUAT, 'YYYY') DESC;
+GROUP BY SB.TEN, SB.MA, NAM_SAN_XUAT
+ORDER BY TO_CHAR(NAM_SAN_XUAT, 'YYYY') DESC, TEN ASC;
 
 -- 13.	Hiển thị 5 quyển sách được các bạn đọc có độ tuổi từ 18 đến 25 mượn nhiều nhất tính từ đầu năm 2022. (Tính theo trường số lượng mượn của sách)
 -- Mã Sách, Tên Sách, Số Lượng Được Mượn
