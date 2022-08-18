@@ -22,5 +22,4 @@ public class AWTListenerExample {
         screen.setSize(200, 300);
         screen.setVisible(true);
     }
-
 }
