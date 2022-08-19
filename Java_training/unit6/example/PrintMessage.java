@@ -1,13 +1,15 @@
 package demo.unit6.example;
 
+import java.util.concurrent.TimeUnit;
+
 import static java.util.Arrays.stream;
 
 public class PrintMessage implements Runnable {
 
     public static void main(String[] args) {
-       /*PrintMessage mess = new PrintMessage("say hello thread java");
+        PrintMessage mess = new PrintMessage("say hello thread java");
         new Thread(mess).start();
-        new Thread(mess).start();*/
+        new Thread(mess).start();
 
         new Thread(new PrintMessage("Nguyen viet hien hello java")).start();
         new Thread(new PrintMessage("Nguyen viet hien hello java")).start();
@@ -23,12 +25,12 @@ public class PrintMessage implements Runnable {
     public void run() {
         String[] elements = message.split(" ");
         stream(elements).forEach(ele -> {
-            /*try {
+            try {
                 System.out.println(Thread.currentThread().getName() + " print " + ele);
                 TimeUnit.SECONDS.sleep(1);
             } catch (Exception e) {
                 e.printStackTrace();
-            }*/
+            }
             try {
                 System.out.println(Thread.currentThread().getName() + " print " + ele);
                 Thread.sleep((int) (Math.random() * 3) * 1000);

@@ -41,7 +41,7 @@ public class PrintNumber implements Runnable {
     @Override
     public void run() {
         Thread current = Thread.currentThread();
-        while (alive) {
+        while (number < 10) {
             number++;
             System.out.println(current.getName() + " number is \"" + number + "\"");
             try {

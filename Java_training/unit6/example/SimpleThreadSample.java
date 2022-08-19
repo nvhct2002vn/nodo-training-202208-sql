@@ -8,20 +8,20 @@ public class SimpleThreadSample {
     }
 
     public static void thread1(String[] args) {
-//        Thread t = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                Arrays.stream(args).forEach(ele -> {
-//                    try {
-//                        Thread.sleep(1000);
-//                        System.out.println(ele);
-//                    } catch (InterruptedException e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                });
-//            }
-//        });
-//        t.start();
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Arrays.stream(args).forEach(ele -> {
+                    try {
+                        Thread.sleep(1000);
+                        System.out.println(ele);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+        });
+        t.start();
 
         new Thread(() -> {
             Arrays.stream(args).forEach(ele -> {
