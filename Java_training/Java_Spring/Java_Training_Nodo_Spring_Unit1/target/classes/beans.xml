@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+>
+    <!--    default-destroy-method="release" -->
+    <!--    default-init-method="initMessage"-->
+    <!--    <bean id="helloJavaClazz" class="edu.java.spring.HelloClass" init-method="initMessage" scope="singleton">-->
+    <!--        <property name="message" value="Welcome to Java Clazz"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloJavaClazz" class="edu.java.spring.HelloClass" init-method="initMessage" scope="prototype">-->
+    <!--        <property name="message" value="Welcome to Java Clazz"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloJavaClazz" class="edu.java.spring.HelloClass" init-method="initMessage">-->
+    <!--        <constructor-arg type="int" value="5"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="helloJavaClazz2" class="edu.java.spring.HelloClass" init-method="initMessage">-->
+    <!--        <constructor-arg ref="helloJavaClazz"/>-->
+    <!--    </bean>-->
+    <!--    <bean class="edu.java.spring.InitSampleBean">-->
+
+    <!--    </bean>-->
+
+    <!--    <bean id="helloWorld" class="edu.java.spring.HelloWorld">-->
+    <!--        <property name="message" value="Hello sub bean"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloJavaClazz" class="edu.java.spring.HelloWorld">-->
+    <!--        <property name="message" value="Hello sub bean helloJavaClazz"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="helloWorld" class="edu.java.spring.HelloWorld" parent="helloJavaClazz">-->
+    <!--    </bean>-->
+
+    <!--    <bean id="sampleTemplate" abstract="true">-->
+    <!--        <property name="message" value="Template say Hello!"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloWorld" class="edu.java.spring.HelloWorld" parent="sampleTemplate"/>-->
+
+    <!--    <bean id="helloJavaClazz" class="edu.java.spring.HelloClass"/>-->
+
+    <!--    <bean id="helloWorld" class="edu.java.spring.HelloWorld">-->
+    <!--        <constructor-arg type="java.lang.String" value="Thuan"/>-->
+    <!--        <constructor-arg ref="helloJavaClazz"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloJavaClazz" class="edu.java.spring.HelloClass">-->
+    <!--        <property name="message" value="Hello Bean Inheritance!"></property>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloWorld" class="edu.java.spring.HelloWorld">-->
+    <!--        <property name="clazz">-->
+    <!--            <bean id="helloJavaClazz" class="edu.java.spring.HelloClass">-->
+    <!--                <property name="message" value="Hello Class Instance is Inner Bean!"/>-->
+    <!--            </bean>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloWorld" class="edu.java.spring.HelloWorld" autowire="byName">-->
+    <!--        <property name="message" value="Hello em"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="clazz" class="edu.java.spring.HelloClass">-->
+    <!--    </bean>-->
+
+    <!--    <bean id="jee01" class="edu.java.spring.JavaClass">-->
+    <!--        <property name="students">-->
+    <!--            <map>-->
+    <!--                <entry key="Nguyen Van A" value="23"/>-->
+    <!--                <entry key="Trần Thị B" value="18"/>-->
+    <!--                <entry key="Lê Thị C" value="27"/>-->
+    <!--                <entry key="Hoang Van D" value="34"/>-->
+    <!--            </map>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloJavaClazz" class="edu.java.spring.HelloClass">-->
+    <!--        <property name="classes">-->
+    <!--            <list>-->
+    <!--                <ref bean="jee01"/>-->
+    <!--                <null/>-->
+    <!--            </list>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="helloWorld" class="edu.java.spring.HelloWorld" autowire="byType">-->
+    <!--        <property name="message" value="Hello Annotation based Configuration"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="helloJavaClazz" class="edu.java.spring.HelloClass">-->
+    <!--    </bean>-->
+
+    <!--    <context:annotation-config/>-->
+
+    <!--    <bean id="helloJavaClazz2" class="edu.java.spring.HelloClass">-->
+    <!--        <property name="message" value="Hello Bean Inheritance!"/>-->
+    <!--    </bean>-->
+
+    <bean id="startEventHandler" class="edu.java.spring.ContextStartEventHandler"/>
+</beans>
