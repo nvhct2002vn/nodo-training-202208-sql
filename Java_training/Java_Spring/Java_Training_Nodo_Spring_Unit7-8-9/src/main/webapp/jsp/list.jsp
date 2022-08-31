@@ -12,27 +12,24 @@
 
     <tiles:putAttribute name="body">
         <h1>List</h1>
-        <form action="/user/list" method="get">
+        <form action="/group/list" method="get">
             <input type="text" name="q">
         </form>
         <table border="1">
             <tr>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>Group Id</th>
-                <th>Control</th>
+                <th>Name</th>
+                <th>#</th>
             </tr>
-            <c:forEach items="${listUser}" var="item">
+            <c:forEach items="${list}" var="item">
                 <tr>
-                    <td>${item.username}</td>
-                    <td>${item.password}</td>
-                    <td>${item.email}</td>
-                    <td>${item.age}</td>
-                    <td>${item.groupId}</td>
-                    <td><a href="/user/delete/${item.username}">Delete</a></td>
-                    <td><a href="/user/edit/${item.username}">Edit</a></td>
+                    <td>${item.name}</td>
+                    <ul>
+                        <c:forEach items="${item.users}" var="user" varStatus="loop">
+                            <li>${user.username} - ${user.age}</li>
+                        </c:forEach>
+                    </ul>
+                    <td><a href="/group/delete/${item.id}">Delete</a></td>
+                    <td><a href="/group/edit/${item.id}">Edit</a></td>
                 </tr>
             </c:forEach>
         </table>

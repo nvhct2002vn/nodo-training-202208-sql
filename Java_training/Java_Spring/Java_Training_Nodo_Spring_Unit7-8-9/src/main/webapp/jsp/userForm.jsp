@@ -26,7 +26,7 @@
                 <form:input path="age"/>
             </p>
             <p>group:
-                <form:select id="group" name="group" path="groupId">
+                <form:select path="group">
                     <form:options items="${groups}"/>
                 </form:select>
             </p>

@@ -17,4 +17,6 @@ public interface UserDAO {
     public void update(User user);
 
     public List<User> listByUsername(String usnername);
+
+    public Integer average();
 }

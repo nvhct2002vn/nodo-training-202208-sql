@@ -7,6 +7,7 @@ import edu.hanoi.jazz.springjazz.model.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,16 +44,37 @@ public class UserController {
     }
 
     @PostMapping("add")
-    public ModelAndView addUser(@ModelAttribute("command") User user, @RequestParam("username") Optional<String> username) {
-        ModelAndView mv = new ModelAndView();
+    public ModelAndView addUser(@Valid @ModelAttribute("command") User user, BindingResult result, @RequestParam("username") Optional<String> username,
+                                @RequestParam("group") Integer groupId) {
+        Group group = groupDAO.findID(groupId);
+        System.out.println("---------------> " + group);
         if (username.isEmpty()) {
+            user.setGroup(group);
             userDAO.insert(user);
             LOGGER.info("Add new user ----------------> " + user);
         } else {
+            user.setGroup(group);
             userDAO.update(user);
         }
         return new ModelAndView("redirect:/user/list");
     }
+//    @PostMapping("add")
+//    public ModelAndView addOrUpdate(@Valid @ModelAttribute("command") User user, BindingResult result,
+//                                    @RequestParam("group") Integer groupId) {
+//
+//        ModelAndView modelAndView;
+//        Group group = groupDAO.findID(groupId);
+//        if (user.getUsername() != null) {
+//            user.setGroup(group);
+//            userDAO.update(user);
+//        } else {
+//            user.setGroup(group);
+//            userDAO.insert(user);
+//        }
+//        modelAndView = new ModelAndView("redirect:/user/list");
+//        modelAndView.addObject("users", userDAO.list());
+//        return modelAndView;
+//    }
 
     @GetMapping("edit/{username}")
     public ModelAndView edit(@PathVariable("username") String username) {
@@ -70,6 +92,7 @@ public class UserController {
         } else {
             mv.addObject("listUser", userDAO.list());
         }
+        mv.addObject("avg", userDAO.average());
         mv.setViewName("listUser");
         return mv;
     }
