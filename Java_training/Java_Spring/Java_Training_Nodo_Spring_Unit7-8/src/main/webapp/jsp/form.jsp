@@ -7,6 +7,7 @@
         <h1>Add group</h1>
         <form:form action="${pageContext.request.contextPath}/group/add" method="post">
             <form:hidden path="id"/>
+
             <p>
                 <label>
                     <form:input type="text" path="name" placeholder="Name"/>

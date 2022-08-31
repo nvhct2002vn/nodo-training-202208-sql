@@ -43,10 +43,14 @@ public class GroupController {
     }
 
     @GetMapping("list")
-    public ModelAndView list() {
+    public ModelAndView list(@RequestParam(value = "q", required = false) Optional<String> name) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("list");
-        mv.addObject("list", groupDAO.list());
+        if (name.isEmpty()) {
+            mv.addObject("list", groupDAO.list());
+        } else {
+            mv.addObject("list", groupDAO.listByName(name.get()));
+        }
         return mv;
     }
 

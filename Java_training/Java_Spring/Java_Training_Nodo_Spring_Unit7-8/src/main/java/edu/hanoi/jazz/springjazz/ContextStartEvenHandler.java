@@ -24,6 +24,14 @@ public class ContextStartEvenHandler implements ApplicationListener<ContextStart
                     "id int AUTO_INCREMENT primary key,\n" +
                     "name varchar(100)\n" +
                     ")");
+            createTable("HN_USER", "create table HN_USER(\n" +
+                    "username varchar(100) primary key,\n" +
+                    "password varchar(100),\n" +
+                    "email varchar(100),\n" +
+                    "age int,\n" +
+                    "groupId int,\n" +
+                    "constraint ct_grId foreign key(groupId) references hn_group(id)\n" +
+                    ")");
         } catch (Exception e) {
             e.printStackTrace();
         }

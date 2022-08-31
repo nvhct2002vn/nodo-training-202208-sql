@@ -81,6 +81,13 @@
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
+
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:User.xml</value>
+            </list>
+        </property>
+
         <property name="packagesToScan" value="edu.hanoi.jazz.springjazz.model"/>
     </bean>
 

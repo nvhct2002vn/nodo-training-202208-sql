@@ -15,4 +15,6 @@ public interface GroupDAO {
     public void update(Group group);
 
     public Group findID(Integer id);
+
+    public List<Group> listByName(String name);
 }
