@@ -73,4 +73,10 @@ public class UserController {
         mv.setViewName("listUser");
         return mv;
     }
+
+    @GetMapping("delete/{username}")
+    public String deleteUser(@PathVariable("username") String username) {
+        userDAO.delete(username);
+        return "redirect:/user/list";
+    }
 }
