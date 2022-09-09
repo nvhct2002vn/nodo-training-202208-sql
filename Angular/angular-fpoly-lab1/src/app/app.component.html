@@ -1,0 +1,55 @@
+<p>Hello</p>
+<div class="container">
+  <div class="caption">
+    <h4>Thong tin sinh vien</h4>
+    <img src="assets/images/{{user.hinhAnh}}">
+  </div>
+  <ul>
+    <li><span>Ho ten: {{user.hoTen}}</span></li>
+    <li><span>Gioi tinh: {{user.gioiTinh}}</span></li>
+    <li><span>Ngay sinh: {{user.ngaySinh}}</span></li>
+    <li><span>Diem trung binh: {{user.diemTB}}</span></li>
+  </ul>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Year</th>
+      <th scope="col">Passed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let u of users">
+      <th scope="row">{{u.id}}</th>
+      <td>{{u.first}}</td>
+      <td>{{u.last}}</td>
+      <td>{{u.year}}</td>
+      <td>{{u.passed}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Year</th>
+      <th scope="col">Passed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of products">
+      <th><img style="width: 55px" src="{{p.imageUrl}}" alt=""></th>
+      <td>{{p.productName}}</td>
+      <td>{{p.productCode}}</td>
+      <td>{{p.releaseDate}}</td>
+      <td>{{p.price}}</td>
+      <td>{{p.starRating}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,10 @@
+<progress-bar></progress-bar>
+<br />
+<progress-bar
+  [progress]="currentProgress"
+  [progressColor]="'yellow'"
+></progress-bar>
+<br />
+<button (click)="currentProgress = currentProgress + 1">+</button>
+<button (click)="currentProgress = currentProgress - 1">-</button>
+<p>{{ currentProgress }}</p>

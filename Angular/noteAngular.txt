@@ -1,0 +1,6 @@
+video day 1:
+ng new prodject name ---> tạo dự án
+ng serve , ng server -o, npm run start ----> chạy dự án
+
+video day 2:
+main.ts là file đầu tiên khi chạy ứng dụng angular

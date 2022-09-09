@@ -1,0 +1,29 @@
+<button (click)="isDanger = !isDanger">Toggle Danger</button>
+<button (click)="isWarning = !isWarning">Toggle Warning</button>
+<!--[class] = " class-name " = "true"-->
+<!--[class] = " ['class-name'] "-->
+<!--[class] = " {class-name : true} "-->
+<!--[class] = "variable"-->
+<div class="box" [class.red-border]="isDanger" [class.yellow-background]="isWarning"></div>
+<div class="box" [class]="['red-border','yellow-background']"></div>
+<div class="box" [class]="{'red-border' : isDanger,'yellow-background':isWarning}"></div>
+<div class="box" [class]="classCss"></div>
+
+<!--[style.styleName] = " 'String' "-->
+<!--[style.style-name] = " 'String' "-->
+<!--[style.styleName.unit] = " value "-->
+<!--[style.style-name.unit] = " value "-->
+<!--[style] = " object "-->
+
+
+<p [style.backgroundColor]=" 'red' " [style.color]=" 'blue' " [style.font-size.rem]="2">
+  Hello Nguyen Viet Hien
+</p>
+
+<p [style]="{
+    color: 'red',
+    background: 'black',
+    height : '40px'
+}">
+  Nguyen viet hien object
+</p>

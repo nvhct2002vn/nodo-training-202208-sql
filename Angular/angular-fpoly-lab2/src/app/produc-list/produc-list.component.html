@@ -1,0 +1,36 @@
+<div class="mb-2">
+  <label class="form-label">Filter:</label>
+  <input type="text" class="form-control" [(ngModel)]='filterValue' (input)='filter()'>
+  <h3>có {{numberStar}}</h3>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First</th>
+    <th scope="col">Last</th>
+    <th scope="col">Year</th>
+    <th scope="col">Passed</th>
+    <th scope="col">Rating</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of products">
+    <th>
+      <div style=" height: 55px;width: 55px" (click)="checkHidden();">
+        <img style="width: 55px" src="{{p.imageUrl}}" alt="" *ngIf="isHidden">
+      </div>
+    </th>
+    <td>{{p.productName}}</td>
+    <td>{{p.productCode}}</td>
+    <td>{{p.releaseDate}}</td>
+    <td>{{p.price}}</td>
+    <td>
+      <!--      [rating] là input nhận vào số sao-->
+      <!--      (opRatingCheck) là output trả ra số sao cho method-->
+      <app-star #checkSao [rating]="p.starRating" (opRatingCheck)="nhanOpRating($event)"></app-star>
+      <button type="submit" (click)="checkSao.onClick()">Submit</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,17 @@
+<p>{{title}}</p>
+
+
+<input type="checkbox" [(ngModel)]="title">
+<br>
+<br>
+<!--
+#btnComponent gọi là template-variable
+btnToogle là instance của toogleComponent
+-->
+<app-toogle #btnComponent [checked]="title"></app-toogle>
+
+<!--cách tương tác trên template (gọi ở bên ngoài)-->
+<button (click)="btnComponent.toggle()" type="submit">Submit</button>
+
+<br>
+{{btnComponent}}
